@@ -2,7 +2,14 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+First, configure the Mapbox token (the map does not load without it):
+
+```bash
+cp .env.example .env.local
+# edit .env.local and set NEXT_PUBLIC_MAPBOX_TOKEN to your public (pk.) Mapbox token
+```
+
+Then run the development server:
 
 ```bash
 npm run dev

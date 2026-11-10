@@ -34,7 +34,15 @@ interface Map3DProps {
     onSelectBuilding: (id: string | null) => void;
 }
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiZW5raTEyIiwiYSI6ImNtZzU4dzYzdTAwYzgybHB0YWE0Y2JtcGEifQ.Zc5-3NG1jq9MQFfYq3e7Mw';
+const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN ?? '';
+
+if (!MAPBOX_TOKEN) {
+    console.error(
+        'NEXT_PUBLIC_MAPBOX_TOKEN não definido. Copie .env.example para .env.local e informe o token público do Mapbox.'
+    );
+}
+
+mapboxgl.accessToken = MAPBOX_TOKEN;
 
 // Coordenadas de São Miguel dos Campos - Alagoas
 const INITIAL_CENTER: [number, number] = [-36.10, -9.78];
